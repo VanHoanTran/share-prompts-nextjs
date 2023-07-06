@@ -27,6 +27,7 @@ const handler = NextAuth({
         const userExist = await User.findOne({ email: profile.email });
         // if not, create a new user and save to database.
         if (!userExist) {
+          console.log(profile);
           await User.create({
             email: profile.email,
             username: profile.name.replace(' ', '').toLowerCase(),
